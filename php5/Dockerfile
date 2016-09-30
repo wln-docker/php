@@ -1,4 +1,4 @@
-FROM daocloud.io/ubuntu:trusty
+FROM ubuntu:trusty
 MAINTAINER WlniaoStudio <ideploy@wlniao.com>
 ENV WLN_STARTUP_ROOT /wln
 ENV WLN_LISTEN_PORT 80
