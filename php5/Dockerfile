@@ -39,7 +39,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
 # 配置默认放置 App 的目录
 RUN mkdir -p /wln && rm -rf /var/www/html && ln -s /wln /var/www/html
 
-COPY . /wln/start.sh && chmod 755 /wln/start.sh
+ADD ./start.sh /wln/start.sh
+RUN chmod 755 /wln/start.sh
 ONBUILD COPY . /wln
 ONBUILD WORKDIR /wln
 ONBUILD ENTRYPOINT ["/bin/bash", "/wln/start.sh"]
