@@ -41,4 +41,4 @@ RUN chmod 777 /start.sh && rm /var/www/html -rf && mkdir /var/www/html && chmod 
 WORKDIR /var/www/html
 ENTRYPOINT ["/bin/bash", "/start.sh"]
 ONBUILD COPY . /var/www/html
-ONBUILD RUN chmod -R 666 /var/www/html
+ONBUILD RUN chmod -R 777 /var/www/html
