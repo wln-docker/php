@@ -37,7 +37,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
         /etc/php5/apache2/php.ini
 
 ADD ./start.sh /start.sh
-RUN chmod 777 /start.sh
+RUN chmod 777 /start.sh && rm /var/www/html -rf && mkdir /var/www/html && chmod 777 /var/www/html
 WORKDIR /var/www/html
 ENTRYPOINT ["/bin/bash", "/start.sh"]
 ONBUILD COPY . /var/www/html
