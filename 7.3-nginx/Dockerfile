@@ -7,6 +7,7 @@ RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-cur
     php7-mbstring php7-gd nginx supervisor curl
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
+COPY config/php-fpm.conf /etc/php7/php-fpm.conf
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chmod -R a+rw /var/lib/nginx && \
