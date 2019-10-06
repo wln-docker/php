@@ -12,7 +12,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chmod -R 777 /var/lib/nginx && \
   chmod -R 777 /var/tmp/nginx && \
   chmod -R 777 /var/log/nginx
-USER nobody
+
 COPY src/ /wwwroot/
 EXPOSE 80
 VOLUME /wwwroot
