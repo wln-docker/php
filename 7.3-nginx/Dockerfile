@@ -13,7 +13,7 @@ RUN chmod -R 777 /var/lib/nginx && \
   chmod -R 777 /var/tmp/nginx && \
   chmod -R 777 /var/log/nginx
 USER nobody
-COPY --chown=nobody src/ /wwwroot/
+COPY src/ /wwwroot/
 EXPOSE 80
 VOLUME /wwwroot
 WORKDIR /wwwroot
