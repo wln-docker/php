@@ -12,7 +12,9 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chmod -R a+rw /run && \
   chmod -R a+rw /var/lib/nginx && \
   chmod -R a+rw /var/tmp/nginx && \
-  chmod -R a+rw /var/log/nginx
+  chmod -R a+rw /var/log/nginx && \
+  mkdir /var/tmp/nginx/client_body &&\
+  chmod -R a+rw /var/tmp/nginx/client_body 
 
 COPY --chown=nobody src/ /wwwroot/
 EXPOSE 80
