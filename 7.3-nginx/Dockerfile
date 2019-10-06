@@ -9,7 +9,8 @@ RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-cur
 COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-RUN chown -R nobody.nobody /var/lib/nginx && \
+RUN chown -R nobody.nobody /run && \
+  chown -R nobody.nobody /var/lib/nginx && \
   chown -R nobody.nobody /var/tmp/nginx && \
   chown -R nobody.nobody /var/log/nginx
 
