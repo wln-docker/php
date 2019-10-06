@@ -14,7 +14,7 @@ RUN chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/tmp/nginx && \
   chown -R nobody.nobody /var/log/nginx
 USER nobody
-COPY src/ /wwwroot/
+COPY --chown=nobody src/ /wwwroot/
 EXPOSE 80
 VOLUME /wwwroot
 WORKDIR /wwwroot
