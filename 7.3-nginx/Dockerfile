@@ -13,11 +13,12 @@ RUN chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/lib/nginx && \
   chown -R nobody.nobody /var/tmp/nginx && \
   chown -R nobody.nobody /var/log/nginx
+
 USER nobody
-COPY --chown=nobody src/ /wwwroot/
-EXPOSE 80
-VOLUME /wwwroot
 WORKDIR /wwwroot
+COPY --chown=nobody src/ /wwwroot
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
+VOLUME /wwwroot
+EXPOSE 80
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:80/fpm-ping
