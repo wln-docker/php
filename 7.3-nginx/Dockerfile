@@ -13,7 +13,6 @@ RUN chmod -R a+rw /var/lib/nginx && \
   chmod -R a+rw /var/tmp/nginx && \
   chmod -R a+rw /var/log/nginx
 
-USER nobody
 COPY src/ /wwwroot/
 EXPOSE 80
 VOLUME /wwwroot
